@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="zh"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Negative Entropy AI Chat</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "secondary-fixed": "#cfe5ff",
+                        "secondary-fixed-dim": "#98cbff",
+                        "secondary-container": "#00a2fd",
+                        "primary-fixed-dim": "#00e639",
+                        "on-tertiary": "#432c00",
+                        "on-primary-fixed": "#002203",
+                        "surface-container-highest": "#353534",
+                        "tertiary-container": "#ffd799",
+                        "surface-bright": "#393939",
+                        "background": "#131313",
+                        "surface-variant": "#353534",
+                        "on-surface-variant": "#b9ccb2",
+                        "on-primary": "#003907",
+                        "tertiary": "#fff8f3",
+                        "surface-tint": "#00e639",
+                        "on-secondary": "#003354",
+                        "inverse-primary": "#006e16",
+                        "on-background": "#e5e2e1",
+                        "primary-fixed": "#72ff70",
+                        "on-secondary-fixed": "#001d33",
+                        "error": "#ffb4ab",
+                        "outline-variant": "#3b4b37",
+                        "on-tertiary-container": "#825900",
+                        "inverse-surface": "#e5e2e1",
+                        "surface-container-high": "#2a2a2a",
+                        "surface": "#131313",
+                        "secondary": "#98cbff",
+                        "primary-container": "#00ff41",
+                        "on-tertiary-fixed-variant": "#604100",
+                        "surface-container-low": "#1c1b1b",
+                        "on-primary-container": "#007117",
+                        "tertiary-fixed": "#ffdeac",
+                        "on-tertiary-fixed": "#281900",
+                        "on-error-container": "#ffdad6",
+                        "on-error": "#690005",
+                        "surface-dim": "#131313",
+                        "outline": "#84967e",
+                        "on-primary-fixed-variant": "#00530e",
+                        "inverse-on-surface": "#313030",
+                        "surface-container-lowest": "#0e0e0e",
+                        "surface-container": "#201f1f",
+                        "primary": "#ebffe2",
+                        "error-container": "#93000a",
+                        "on-secondary-fixed-variant": "#004a77",
+                        "tertiary-fixed-dim": "#ffba38",
+                        "on-surface": "#e5e2e1",
+                        "on-secondary-container": "#003558"
+                    },
+                    fontFamily: {
+                        "headline": ["Space Grotesk"],
+                        "body": ["Inter"],
+                        "label": ["Space Grotesk"],
+                        "mono": ["JetBrains Mono"]
+                    },
+                    borderRadius: { "DEFAULT": "0px", "lg": "0px", "xl": "0px", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #131313;
+            background-image: radial-gradient(rgba(0, 255, 65, 0.05) 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+        .step-easing { transition-timing-function: steps(4, end); }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="font-body text-on-background selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopAppBar -->
+<header class="flex justify-between items-center w-full px-6 h-16 fixed top-0 z-50 bg-[#131313] dark:bg-[#131313] border-b border-[#00FF41]/10 shadow-[0_0_15px_rgba(0,255,65,0.05)]">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-[#00FF41]" data-icon="terminal">terminal</span>
+<h1 class="font-['Space_Grotesk'] tracking-tighter uppercase text-[#00FF41] font-mono text-sm font-bold">系统熵值: 0.042</h1>
+</div>
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-2 bg-[#00FF41]/5 px-3 py-1 border border-[#00FF41]/20">
+<span class="w-2 h-2 bg-[#00FF41] animate-pulse"></span>
+<span class="font-mono text-[10px] text-[#00FF41] uppercase tracking-widest">语境就绪</span>
+</div>
+<button class="text-[#00FF41] hover:bg-[#00FF41]/10 transition-colors duration-100 p-2">
+<span class="material-symbols-outlined" data-icon="sync">sync</span>
+</button>
+</div>
+</header>
+<!-- Main Content: Chat Interface -->
+<main class="pt-20 pb-40 px-4 md:px-24 max-w-6xl mx-auto min-h-screen flex flex-col gap-8">
+<!-- Message: AI Intro -->
+<div class="flex flex-col gap-2 max-w-3xl">
+<div class="flex items-center gap-2 mb-1">
+<span class="font-mono text-[10px] text-[#00FF41]/60 uppercase">NE_CORE // 存档访问</span>
+</div>
+<div class="bg-surface-container-low p-6 border-l-2 border-primary-container/30">
+<p class="text-sm leading-relaxed">系统已就绪。正在调取 C++ 内存管理相关历史数据。请问关于指针的深度解析，您需要了解哪个维度的信息？</p>
+</div>
+</div>
+<!-- Message: User Query -->
+<div class="flex flex-col gap-2 max-w-3xl self-end items-end">
+<div class="flex items-center gap-2 mb-1">
+<span class="font-mono text-[10px] text-secondary-container/60 uppercase">用户会话 // ID_8829</span>
+</div>
+<div class="bg-surface-container-highest p-6 border-r-2 border-secondary-container shadow-[inset_0_0_10px_rgba(0,162,253,0.05)]">
+<p class="text-sm leading-relaxed">我想深入理解 C++ 中的悬空指针（Dangling Pointers）是如何产生的，以及在现代 C++ 中如何通过智能指针来完全避免这个熵增过程？</p>
+</div>
+</div>
+<!-- Message: AI Detailed Response -->
+<div class="flex flex-col gap-2 max-w-4xl">
+<div class="flex items-center gap-2 mb-1">
+<span class="font-mono text-[10px] text-[#00FF41]/60 uppercase">NE_CORE // 综合完成</span>
+</div>
+<div class="bg-surface-container-low p-8 border-l-2 border-primary-container relative">
+<div class="absolute top-4 right-4 opacity-10">
+<span class="material-symbols-outlined text-6xl" data-icon="memory">memory</span>
+</div>
+<h3 class="font-headline text-lg font-bold mb-4 text-[#00FF41]">关于悬空指针与内存熵减的分析报告</h3>
+<p class="text-sm leading-relaxed mb-6">悬空指针是指向已经释放的内存地址的指针。这在复杂系统中是导致崩溃和安全漏洞（系统熵增）的主要诱因。现代 C++ 通过 <span class="text-secondary-container font-mono">RAII</span> 机制引入了智能指针，实现了内存所有权的自动化管理。</p>
+<!-- Code Snippet -->
+<div class="font-mono text-xs bg-surface-container-lowest p-5 border border-outline-variant/20 mb-6 overflow-x-auto leading-6">
+<div class="flex justify-between mb-2 text-white/30 border-b border-outline-variant/10 pb-1">
+<span>main.cpp</span>
+<span>C++ 20</span>
+</div>
+<span class="text-secondary-container">#include</span> <span class="text-tertiary-fixed-dim">&lt;memory&gt;</span><br/>
+<br/>
+<span class="text-[#00FF41]/50">// 现代方式：使用 unique_ptr 确保单一所有权</span><br/>
+<span class="text-secondary-container">auto</span> node = std::make_unique&lt;DataNode&gt;(<span class="text-tertiary-fixed-dim">0x42</span>);<br/>
+<br/>
+<span class="text-[#00FF41]/50">// 当 node 超出作用域，内存会自动安全释放</span><br/>
+<span class="text-[#00FF41]/50">// 彻底杜绝了手动 delete 遗漏导致的熵增</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
+<div class="p-4 bg-surface-container-high border-t border-primary-container/20">
+<span class="font-mono text-[10px] text-[#00FF41] block mb-2">协议: unique_ptr</span>
+<p class="text-xs text-on-surface-variant">独占所有权，零开销抽象，不可拷贝只能移动。</p>
+</div>
+<div class="p-4 bg-surface-container-high border-t border-secondary-container/20">
+<span class="font-mono text-[10px] text-secondary-container block mb-2">协议: shared_ptr</span>
+<p class="text-xs text-on-surface-variant">引用计数机制，允许多个指针共享同一资源生命周期。</p>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Floating Action Button -->
+<button class="fixed bottom-24 right-8 z-50 bg-primary-container text-on-primary-container px-6 py-4 flex items-center gap-3 shadow-[0_0_20px_rgba(0,255,65,0.3)] hover:brightness-110 active:scale-95 transition-all duration-100 group">
+<span class="material-symbols-outlined group-hover:rotate-12 transition-transform" data-icon="bolt" style="font-variation-settings: 'FILL' 1;">bolt</span>
+<span class="font-mono text-sm font-bold tracking-widest">生成负熵资产</span>
+</button>
+<!-- Bottom Navigation Shell & Chat Input Area -->
+<div class="fixed bottom-0 left-0 w-full z-50">
+<!-- Terminal Input Bar -->
+<div class="bg-[#1C1B1B] border-t border-[#00FF41]/20 px-6 py-4 flex items-center gap-4">
+<span class="font-mono text-[#00FF41] animate-pulse">&gt;_</span>
+<input class="bg-transparent border-none focus:ring-0 text-sm font-mono w-full text-on-background placeholder:text-[#00FF41]/20" placeholder="输入指令或探讨技术细节..." type="text"/>
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-[#00FF41]/40 cursor-pointer hover:text-[#00FF41]" data-icon="attach_file">attach_file</span>
+<span class="material-symbols-outlined text-[#00FF41]/40 cursor-pointer hover:text-[#00FF41]" data-icon="mic">mic</span>
+<button class="text-[#00FF41]">
+<span class="material-symbols-outlined" data-icon="send">send</span>
+</button>
+</div>
+</div>
+<!-- BottomNavBar -->
+<nav class="bg-[#131313]/90 backdrop-blur-xl h-20 flex justify-around items-center px-4 border-t border-[#00FF41]/20">
+<a class="flex flex-col items-center justify-center text-[#00FF41]/30 pt-2 hover:text-[#00FF41] hover:bg-[#00FF41]/5 transition-colors duration-100" href="#">
+<span class="material-symbols-outlined" data-icon="chat_bubble">chat_bubble</span>
+<span class="font-mono text-[10px] uppercase tracking-widest mt-1">枢纽</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#00FF41]/30 pt-2 hover:text-[#00FF41] hover:bg-[#00FF41]/5 transition-colors duration-100" href="#">
+<span class="material-symbols-outlined" data-icon="account_tree">account_tree</span>
+<span class="font-mono text-[10px] uppercase tracking-widest mt-1">图谱</span>
+</a>
+<!-- Active State: Chat -->
+<a class="flex flex-col items-center justify-center text-[#00FF41] border-t-2 border-[#00FF41] pt-2 drop-shadow-[0_0_5px_rgba(0,255,65,0.5)]" href="#">
+<span class="material-symbols-outlined" data-icon="memory" style="font-variation-settings: 'FILL' 1;">memory</span>
+<span class="font-mono text-[10px] uppercase tracking-widest mt-1">对话</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#00FF41]/30 pt-2 hover:text-[#00FF41] hover:bg-[#00FF41]/5 transition-colors duration-100" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-mono text-[10px] uppercase tracking-widest mt-1">个人</span>
+</a>
+</nav>
+</div>
+</body></html>

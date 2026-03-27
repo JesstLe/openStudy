@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;700&amp;family=Space+Grotesk:wght@500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-secondary-fixed-variant": "#004a77",
+              "on-tertiary-fixed-variant": "#604100",
+              "on-secondary-container": "#003558",
+              "on-tertiary": "#432c00",
+              "inverse-primary": "#006e16",
+              "outline-variant": "#3b4b37",
+              "tertiary-container": "#ffd799",
+              "on-primary-container": "#007117",
+              "background": "#131313",
+              "on-tertiary-fixed": "#281900",
+              "tertiary-fixed": "#ffdeac",
+              "surface-dim": "#131313",
+              "surface-container": "#201f1f",
+              "secondary": "#98cbff",
+              "outline": "#84967e",
+              "on-tertiary-container": "#825900",
+              "surface-variant": "#353534",
+              "on-error": "#690005",
+              "secondary-container": "#00a2fd",
+              "secondary-fixed": "#cfe5ff",
+              "surface-container-highest": "#353534",
+              "surface": "#131313",
+              "primary-container": "#00ff41",
+              "tertiary": "#fff8f3",
+              "surface-container-lowest": "#0e0e0e",
+              "surface-container-low": "#1c1b1b",
+              "inverse-on-surface": "#313030",
+              "secondary-fixed-dim": "#98cbff",
+              "on-secondary-fixed": "#001d33",
+              "on-surface-variant": "#b9ccb2",
+              "on-primary-fixed": "#002203",
+              "primary-fixed": "#72ff70",
+              "on-secondary": "#003354",
+              "on-background": "#e5e2e1",
+              "error-container": "#93000a",
+              "error": "#ffb4ab",
+              "inverse-surface": "#e5e2e1",
+              "tertiary-fixed-dim": "#ffba38",
+              "primary-fixed-dim": "#00e639",
+              "on-primary-fixed-variant": "#00530e",
+              "primary": "#ebffe2",
+              "on-error-container": "#ffdad6",
+              "surface-bright": "#393939",
+              "surface-tint": "#00e639",
+              "on-primary": "#003907",
+              "surface-container-high": "#2a2a2a",
+              "on-surface": "#e5e2e1"
+            },
+            fontFamily: {
+              "headline": ["Space Grotesk"],
+              "body": ["Inter"],
+              "label": ["JetBrains Mono"]
+            },
+            borderRadius: {"DEFAULT": "0px", "lg": "0px", "xl": "0px", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .step-easing { transition-timing-function: steps(4, end); }
+        .grid-bg {
+            background-image: radial-gradient(circle, rgba(0, 255, 65, 0.05) 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+        .scanline {
+            background: linear-gradient(to bottom, transparent 50%, rgba(0, 255, 65, 0.02) 50%);
+            background-size: 100% 4px;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-background font-body selection:bg-primary-container selection:text-on-primary-container min-h-screen grid-bg">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 flex justify-between items-center px-6 h-16 bg-[#131313] border-b border-[#00FF41]/10 shadow-[0_0_15px_rgba(0,255,65,0.1)]">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-[#00FF41]" data-icon="terminal">terminal</span>
+<h1 class="font-['JetBrains_Mono'] font-bold text-[#00FF41] tracking-tighter text-lg">SYSTEM_ENTROPY: 0.042</h1>
+</div>
+<div class="flex items-center gap-6">
+<nav class="hidden md:flex gap-8">
+<a class="font-['Space_Grotesk'] uppercase tracking-widest text-xs text-[#00FF41] drop-shadow-[0_0_5px_#00FF41] transition-colors duration-100" href="#">仪表盘</a>
+<a class="font-['Space_Grotesk'] uppercase tracking-widest text-xs text-[#00FF41]/40 hover:bg-[#00FF41]/10 transition-colors duration-100 px-2 py-1" href="#">资源</a>
+<a class="font-['Space_Grotesk'] uppercase tracking-widest text-xs text-[#00FF41]/40 hover:bg-[#00FF41]/10 transition-colors duration-100 px-2 py-1" href="#">网络</a>
+</nav>
+<span class="material-symbols-outlined text-[#00FF41] cursor-pointer hover:bg-[#00FF41]/10 p-1 transition-colors duration-100" data-icon="settings_input_component">settings_input_component</span>
+</div>
+</header>
+<main class="pt-24 pb-32 px-6 max-w-[1440px] mx-auto grid grid-cols-12 gap-6">
+<!-- Sidebar Metadata -->
+<aside class="col-span-12 lg:col-span-2 space-y-8">
+<div class="space-y-1">
+<p class="font-label text-[10px] text-outline uppercase tracking-widest">访问节点</p>
+<p class="font-label text-sm text-secondary">主存档_01</p>
+</div>
+<div class="space-y-1">
+<p class="font-label text-[10px] text-outline uppercase tracking-widest">运行时间</p>
+<p class="font-label text-sm text-on-background">1,244:59:12</p>
+</div>
+<div class="pt-4 border-t border-outline-variant/20">
+<div class="flex items-center gap-2 mb-4">
+<div class="w-2 h-2 bg-primary-container animate-pulse"></div>
+<span class="font-label text-[10px] text-primary-container uppercase">实时反馈</span>
+</div>
+<div class="space-y-3 font-label text-[9px] text-outline/60 leading-tight">
+<p>[14:02] 节点_772 已稳定</p>
+<p>[14:05] 熵值检查：正常</p>
+<p>[14:12] 内存泄漏已拦截</p>
+<p>[14:18] 存档同步中...</p>
+</div>
+</div>
+</aside>
+<!-- Main Workspace -->
+<section class="col-span-12 lg:col-span-10 grid grid-cols-12 gap-6">
+<!-- Global Entropy Value Chart -->
+<div class="col-span-12 lg:col-span-8 bg-surface-container-low p-6 relative overflow-hidden group">
+<div class="absolute top-0 right-0 p-4 font-label text-[10px] text-primary-container/30 uppercase">Metric: ΔS/Δt</div>
+<div class="flex justify-between items-end mb-8">
+<div>
+<h2 class="font-headline text-xl text-on-background uppercase tracking-tight">风险记忆节点</h2>
+<p class="font-label text-[10px] text-outline uppercase mt-1">衰减梯度的空间可视化</p>
+</div>
+<div class="text-right">
+<span class="font-label text-3xl text-primary-container tracking-tighter">-14.2%</span>
+<p class="font-label text-[10px] text-primary-container uppercase">衰减梯度的空间可视化</p>
+</div>
+</div>
+<!-- SVG Line Graph Mockup -->
+<div class="relative h-64 w-full bg-surface-container-lowest/50">
+<svg class="w-full h-full" preserveaspectratio="none" viewbox="0 0 800 200">
+<path d="M0,50 L100,60 L200,45 L300,80 L400,120 L500,110 L600,140 L700,165 L800,175" fill="none" stroke="#00FF41" stroke-width="2"></path>
+<path d="M0,50 L100,60 L200,45 L300,80 L400,120 L500,110 L600,140 L700,165 L800,175 V200 H0 Z" fill="url(#grad1)" opacity="0.1"></path>
+<defs>
+<lineargradient id="grad1" x1="0%" x2="0%" y1="0%" y2="100%">
+<stop offset="0%" style="stop-color:#00FF41;stop-opacity:1"></stop>
+<stop offset="100%" style="stop-color:#00FF41;stop-opacity:0"></stop>
+</lineargradient>
+</defs>
+<!-- Grid lines -->
+<line opacity="0.1" stroke="#00FF41" stroke-dasharray="4" stroke-width="0.5" x1="0" x2="800" y1="50" y2="50"></line>
+<line opacity="0.1" stroke="#00FF41" stroke-dasharray="4" stroke-width="0.5" x1="0" x2="800" y1="100" y2="100"></line>
+<line opacity="0.1" stroke="#00FF41" stroke-dasharray="4" stroke-width="0.5" x1="0" x2="800" y1="150" y2="150"></line>
+</svg>
+<!-- Floating Data Node -->
+<div class="absolute bottom-[25px] right-[50px] flex flex-col items-center">
+<div class="w-3 h-3 bg-primary-container shadow-[0_0_10px_#00FF41]"></div>
+<div class="mt-2 bg-surface-container-highest px-2 py-1 border border-primary-container/20">
+<p class="font-label text-[9px] text-primary-container">CUR_VAL: 0.042</p>
+</div>
+</div>
+</div>
+<div class="flex justify-between mt-4 font-label text-[9px] text-outline uppercase tracking-widest">
+<span>前30天</span>
+<span>T-15 Days</span>
+<span>当前序列</span>
+</div>
+</div>
+<!-- Knowledge Compound Interest Stats -->
+<div class="col-span-12 lg:col-span-4 space-y-6">
+<div class="bg-surface-container-low p-6 border-l-2 border-secondary-container">
+<p class="font-label text-[10px] text-secondary-container uppercase tracking-widest mb-1">总链接节点</p>
+<div class="flex items-baseline gap-2">
+<h3 class="font-headline text-4xl text-on-background font-bold">12,842</h3>
+<span class="font-label text-xs text-secondary">+124</span>
+</div>
+<div class="mt-4 h-1 w-full bg-surface-container-lowest">
+<div class="h-full bg-secondary-container" style="width: 72%"></div>
+</div>
+<p class="font-label text-[9px] text-outline mt-2 uppercase tracking-tight">网络密度: 0.88 最佳</p>
+</div>
+<div class="bg-surface-container-low p-6 border-l-2 border-tertiary-fixed-dim">
+<p class="font-label text-[10px] text-tertiary-fixed-dim uppercase tracking-widest mb-1">记忆保留系数</p>
+<div class="flex items-baseline gap-2">
+<h3 class="font-headline text-4xl text-on-background font-bold">0.942</h3>
+<span class="font-label text-xs text-tertiary-fixed-dim">稳定</span>
+</div>
+<p class="font-body text-xs text-outline mt-3 leading-relaxed">DELTA 分区的 1,204 个节点已开启系统性重复循环。</p>
+<button class="mt-4 w-full py-2 bg-tertiary-fixed-dim/10 text-tertiary-fixed-dim font-label text-[10px] uppercase border border-tertiary-fixed-dim/20 hover:bg-tertiary-fixed-dim/20 transition-colors">启动复查序列</button>
+</div>
+</div>
+<!-- Memory Nodes at Risk (Heat Map) -->
+<div class="col-span-12 bg-surface-container-low p-6">
+<div class="flex justify-between items-center mb-6">
+<div>
+<h2 class="font-headline text-xl text-on-background uppercase tracking-tight">风险记忆节点</h2>
+<p class="font-label text-[10px] text-outline uppercase mt-1">衰减梯度的空间可视化</p>
+</div>
+<div class="flex gap-4">
+<div class="flex items-center gap-2">
+<div class="w-3 h-3 bg-primary-container"></div>
+<span class="font-label text-[9px] text-outline uppercase">稳定</span>
+</div>
+<div class="flex items-center gap-2">
+<div class="w-3 h-3 bg-tertiary-fixed-dim"></div>
+<span class="font-label text-[9px] text-outline uppercase">衰减中</span>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-10 md:grid-cols-20 gap-1 aspect-[10/2] lg:aspect-[20/2]">
+<!-- Heatmap tiles -->
+<div class="bg-primary-container/80 hover:scale-110 transition-transform cursor-crosshair"></div>
+<div class="bg-primary-container/60"></div>
+<div class="bg-primary-container/90"></div>
+<div class="bg-primary-container/40"></div>
+<div class="bg-tertiary-fixed-dim/30"></div>
+<div class="bg-tertiary-fixed-dim/50"></div>
+<div class="bg-primary-container/70"></div>
+<div class="bg-primary-container/80"></div>
+<div class="bg-primary-container/90"></div>
+<div class="bg-primary-container/50"></div>
+<div class="bg-primary-container/80"></div>
+<div class="bg-primary-container/60"></div>
+<div class="bg-tertiary-fixed-dim/80 animate-pulse"></div>
+<div class="bg-primary-container/40"></div>
+<div class="bg-primary-container/30"></div>
+<div class="bg-primary-container/50"></div>
+<div class="bg-primary-container/70"></div>
+<div class="bg-primary-container/80"></div>
+<div class="bg-primary-container/90"></div>
+<div class="bg-primary-container/50"></div>
+<div class="bg-primary-container/80"></div>
+<div class="bg-primary-container/60"></div>
+<div class="bg-primary-container/90"></div>
+<div class="bg-tertiary-fixed-dim/40"></div>
+<div class="bg-primary-container/30"></div>
+<div class="bg-primary-container/50"></div>
+<div class="bg-primary-container/70"></div>
+<div class="bg-primary-container/80"></div>
+<div class="bg-tertiary-fixed-dim/90 animate-pulse"></div>
+<div class="bg-primary-container/50"></div>
+<div class="bg-primary-container/80"></div>
+<div class="bg-primary-container/60"></div>
+<div class="bg-primary-container/90"></div>
+<div class="bg-primary-container/40"></div>
+<div class="bg-primary-container/30"></div>
+<div class="bg-primary-container/50"></div>
+<div class="bg-primary-container/70"></div>
+<div class="bg-primary-container/80"></div>
+<div class="bg-primary-container/90"></div>
+<div class="bg-primary-container/50"></div>
+</div>
+<div class="mt-6 flex justify-end">
+<button class="bg-primary-container text-on-primary-container font-label text-[10px] px-6 py-2 uppercase tracking-widest font-bold flex items-center gap-2 hover:shadow-[0_0_15px_rgba(0,255,65,0.4)] transition-all"><span class="material-symbols-outlined text-sm" data-icon="auto_fix_high">auto_fix_high</span> 运行优化</button>
+</div>
+</div>
+<!-- Detailed Node Feed (Asymmetric) -->
+<div class="col-span-12 lg:col-span-7 space-y-4">
+<h2 class="font-headline text-sm text-outline uppercase tracking-[0.2em] mb-4">活动综合日志</h2>
+<div class="space-y-2">
+<div class="flex items-center gap-4 p-3 bg-surface-container/40 hover:bg-surface-container transition-colors group">
+<span class="font-label text-[10px] text-primary-container/40">NODE_882</span>
+<div class="flex-1">
+<h4 class="text-xs font-bold uppercase tracking-tight">Quantum Entanglement Basics</h4>
+<p class="text-[10px] text-outline">集群: 哲学主修 | 稳定性: 0.82</p>
+</div>
+<span class="material-symbols-outlined text-primary-container text-sm opacity-0 group-hover:opacity-100 transition-opacity" data-icon="arrow_forward">arrow_forward</span>
+</div>
+<div class="flex items-center gap-4 p-3 bg-surface-container/40 hover:bg-surface-container transition-colors group">
+<span class="font-label text-[10px] text-primary-container/40">NODE_122</span>
+<div class="flex-1">
+<h4 class="text-xs font-bold uppercase tracking-tight">Stoic Ethics: Marcus Aurelius</h4>
+<p class="text-[10px] text-outline">集群: 哲学主修 | 稳定性: 0.82</p>
+</div>
+<span class="material-symbols-outlined text-primary-container text-sm opacity-0 group-hover:opacity-100 transition-opacity" data-icon="arrow_forward">arrow_forward</span>
+</div>
+<div class="flex items-center gap-4 p-3 bg-surface-container/40 hover:bg-surface-container transition-colors group">
+<span class="font-label text-[10px] text-tertiary-fixed-dim/40">NODE_045</span>
+<div class="flex-1">
+<h4 class="text-xs font-bold uppercase tracking-tight text-tertiary-fixed-dim">Neural Network Topologies</h4>
+<p class="text-[10px] text-outline">集群: 计算机存档 | 稳定性: 0.44 [需要重新索引]</p>
+</div>
+<span class="material-symbols-outlined text-tertiary-fixed-dim text-sm opacity-0 group-hover:opacity-100 transition-opacity" data-icon="warning">warning</span>
+</div>
+</div>
+</div>
+<!-- Visual Meta-Card -->
+<div class="col-span-12 lg:col-span-5">
+<div class="bg-surface-container-high h-full min-h-[200px] relative overflow-hidden group">
+<img class="absolute inset-0 w-full h-full object-cover mix-blend-overlay opacity-30 group-hover:scale-110 transition-transform duration-[2000ms]" data-alt="abstract high-tech server room with glowing green fiber optic cables and circuit board patterns in a dark cinematic environment" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA3GT5iOXzZgLYs3yJouVe3WAwoHj_pvAMrktpnUr9lMpcN-5-FDvFqouMjvdk6SlrwarAkJdyrNUcZF6j8MG4aOilJ4SNEWHBQcLPGQPe6cv6_dHOJWXq4SUoxuSyWX8FNnAFLNGYhm6kFqjQ6zdOvrvHlX-JgIekYeqgezb0U8AfSdHUvS493yb3Uu9I3kadTEoIXrjImiW6m9H4a1_DdYKBLlWFRVKP6AQXh35eACovNO52r-BeTkfNiLH1UUdegktaWXEXxP9w"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background to-transparent"></div>
+<div class="relative p-6 h-full flex flex-col justify-end">
+<div class="space-y-2">
+<span class="font-label text-[9px] bg-primary-container text-on-primary-container px-2 py-0.5 inline-block uppercase">系统状态：最佳</span>
+<h3 class="font-headline text-lg uppercase leading-tight">GAMMA 分区的神经底层完整性确认为 99.4%。</h3>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center h-20 bg-[#131313] border-t border-[#00FF41]/20">
+<a class="flex flex-col items-center justify-center text-[#00FF41] bg-[#00FF41]/5 border-t-2 border-[#00FF41] pt-2 pb-3 px-4 transition-all duration-75 ease-in" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="grid_view">grid_view</span>
+<span class="font-['JetBrains_Mono'] text-[10px] tracking-[0.05em] uppercase">HUB</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#00A2FD]/60 pt-2 pb-3 px-4 hover:text-[#00FF41] hover:bg-[#1C1B1B] transition-all duration-75 ease-in" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="hub">hub</span>
+<span class="font-['JetBrains_Mono'] text-[10px] tracking-[0.05em] uppercase">GRAPH</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#00A2FD]/60 pt-2 pb-3 px-4 hover:text-[#00FF41] hover:bg-[#1C1B1B] transition-all duration-75 ease-in" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="forum">forum</span>
+<span class="font-['JetBrains_Mono'] text-[10px] tracking-[0.05em] uppercase">CHAT</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#00A2FD]/60 pt-2 pb-3 px-4 hover:text-[#00FF41] hover:bg-[#1C1B1B] transition-all duration-75 ease-in" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="inventory_2">inventory_2</span>
+<span class="font-['JetBrains_Mono'] text-[10px] tracking-[0.05em] uppercase">ARCHIVE</span>
+</a>
+</nav>
+<!-- Scanline effect overlay -->
+<div class="fixed inset-0 pointer-events-none scanline opacity-30 z-[60]"></div>
+</body></html>

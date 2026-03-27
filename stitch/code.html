@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>系统熵值: 0.042 | 工作流仪表盘</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-secondary-fixed-variant": "#004a77",
+                        "on-tertiary-fixed-variant": "#604100",
+                        "on-secondary-container": "#003558",
+                        "on-tertiary": "#432c00",
+                        "inverse-primary": "#006e16",
+                        "outline-variant": "#3b4b37",
+                        "tertiary-container": "#ffd799",
+                        "on-primary-container": "#007117",
+                        "background": "#131313",
+                        "on-tertiary-fixed": "#281900",
+                        "tertiary-fixed": "#ffdeac",
+                        "surface-dim": "#131313",
+                        "surface-container": "#201f1f",
+                        "secondary": "#98cbff",
+                        "outline": "#84967e",
+                        "on-tertiary-container": "#825900",
+                        "surface-variant": "#353534",
+                        "on-error": "#690005",
+                        "secondary-container": "#00a2fd",
+                        "secondary-fixed": "#cfe5ff",
+                        "surface-container-highest": "#353534",
+                        "surface": "#131313",
+                        "primary-container": "#00ff41",
+                        "tertiary": "#fff8f3",
+                        "surface-container-lowest": "#0e0e0e",
+                        "surface-container-low": "#1c1b1b",
+                        "inverse-on-surface": "#313030",
+                        "secondary-fixed-dim": "#98cbff",
+                        "on-secondary-fixed": "#001d33",
+                        "on-surface-variant": "#b9ccb2",
+                        "on-primary-fixed": "#002203",
+                        "primary-fixed": "#72ff70",
+                        "on-secondary": "#003354",
+                        "on-background": "#e5e2e1",
+                        "error-container": "#93000a",
+                        "error": "#ffb4ab",
+                        "inverse-surface": "#e5e2e1",
+                        "tertiary-fixed-dim": "#ffba38",
+                        "primary-fixed-dim": "#00e639",
+                        "on-primary-fixed-variant": "#00530e",
+                        "primary": "#ebffe2",
+                        "on-error-container": "#ffdad6",
+                        "surface-bright": "#393939",
+                        "surface-tint": "#00e639",
+                        "on-primary": "#003907",
+                        "surface-container-high": "#2a2a2a",
+                        "on-surface": "#e5e2e1"
+                    },
+                    fontFamily: {
+                        "headline": ["Space Grotesk"],
+                        "body": ["Inter"],
+                        "label": ["Space Grotesk"]
+                    },
+                    borderRadius: {"DEFAULT": "0px", "lg": "0px", "xl": "0px", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .step-easing { transition-timing-function: steps(4, end); }
+        .matrix-glow { box-shadow: 0 0 15px rgba(0, 255, 65, 0.1); }
+        .pixel-grid { background-image: radial-gradient(circle, #3b4b37 1px, transparent 1px); background-size: 20px 20px; opacity: 0.05; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface font-body selection:bg-primary-container selection:text-on-primary-container">
+<div class="pixel-grid fixed inset-0 pointer-events-none"></div>
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 flex justify-between items-center px-6 h-16 bg-[#131313] border-b border-[#00FF41]/10 shadow-[0_0_15px_rgba(0,255,65,0.1)]">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-[#00FF41]" data-icon="terminal">terminal</span>
+<span class="font-['JetBrains_Mono'] font-bold text-[#00FF41] tracking-tighter">SYSTEM_ENTROPY: 0.042</span>
+</div>
+<div class="flex items-center gap-6">
+<nav class="hidden md:flex gap-8 font-['Space_Grotesk'] uppercase tracking-widest text-xs">
+<a class="text-[#00FF41] drop-shadow-[0_0_5px_#00FF41] transition-colors duration-100" href="#">枢纽</a>
+<a class="text-[#00FF41]/40 hover:bg-[#00FF41]/10 transition-colors duration-100" href="#">图谱</a>
+<a class="text-[#00FF41]/40 hover:bg-[#00FF41]/10 transition-colors duration-100" href="#">存档</a>
+</nav>
+<span class="material-symbols-outlined text-[#00FF41] hover:bg-[#00FF41]/10 p-2 cursor-pointer transition-colors duration-100" data-icon="settings_input_component">settings_input_component</span>
+</div>
+</header>
+<main class="pt-24 pb-32 px-4 md:px-8 max-w-7xl mx-auto">
+<!-- Header Section -->
+<div class="mb-12 flex flex-col md:flex-row md:items-end justify-between gap-6">
+<div class="space-y-2">
+<div class="flex items-center gap-2">
+<span class="h-2 w-2 bg-primary-container animate-pulse"></span>
+<span class="font-['JetBrains_Mono'] text-[10px] tracking-[0.2em] text-primary-container uppercase">Post-Session Execution</span>
+</div>
+<h1 class="font-headline text-4xl font-bold tracking-tight text-on-surface">自动化工作流</h1>
+<p class="font-['JetBrains_Mono'] text-sm text-on-surface-variant/60">会话 ID: 0x8F22-ALPHA-V9</p>
+</div>
+<button class="bg-surface-container-high text-primary-container font-['JetBrains_Mono'] text-xs border border-primary-container/20 px-6 py-3 hover:bg-primary-container/10 transition-all duration-75 step-easing flex items-center gap-2"><span class="material-symbols-outlined text-sm" data-icon="terminal">terminal</span> 手动覆盖</button>
+</div>
+<!-- Main Content Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+<!-- Pipeline Visualization (LHS) -->
+<div class="lg:col-span-8 space-y-6">
+<!-- Stage 1: Knowledge Extraction -->
+<section class="bg-surface-container-low p-6 relative border-l-2 border-primary-container">
+<div class="flex justify-between items-start mb-6">
+<div>
+<span class="font-['JetBrains_Mono'] text-[10px] text-primary-container/60 block mb-1">01 / 阶段</span>
+<h3 class="font-headline text-xl font-bold uppercase tracking-tight">知识提取</h3>
+</div>
+<div class="flex items-center gap-2 px-3 py-1 bg-primary-container/10 border border-primary-container/20">
+<span class="material-symbols-outlined text-xs text-primary-container" data-icon="sync" style="font-variation-settings: 'FILL' 0;">sync</span>
+<span class="font-['JetBrains_Mono'] text-[10px] text-primary-container font-bold">处理中</span>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+<div class="bg-surface-container p-4">
+<div class="flex justify-between items-center mb-2">
+<span class="font-['JetBrains_Mono'] text-xs text-on-surface-variant">实体: '指针'</span>
+<span class="font-['JetBrains_Mono'] text-xs text-primary-container">88%</span>
+</div>
+<div class="h-1 w-full bg-surface-container-highest overflow-hidden">
+<div class="h-full bg-primary-container" style="width: 88%"></div>
+</div>
+</div>
+<div class="bg-surface-container p-4">
+<div class="flex justify-between items-center mb-2">
+<span class="font-['JetBrains_Mono'] text-xs text-on-surface-variant">实体: '内存管理'</span>
+<span class="font-['JetBrains_Mono'] text-xs text-primary-container">42%</span>
+</div>
+<div class="h-1 w-full bg-surface-container-highest overflow-hidden">
+<div class="h-full bg-primary-container" style="width: 42%"></div>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-4 font-['JetBrains_Mono'] text-xs text-primary-container/40 leading-relaxed border-t border-outline-variant/10">[执行] 正在扫描聊天日志... <br/> [数据] 已识别 14 个独特的技术令牌... <br/> [日志] 过滤噪声中... <br/> [系统] 正在为 '指针' 构建概念树...</div>
+</section>
+<!-- Stage 2: Semantic Linking -->
+<section class="bg-surface-container-low p-6 relative border-l-2 border-secondary-container">
+<div class="flex justify-between items-start mb-6">
+<div>
+<span class="font-['JetBrains_Mono'] text-[10px] text-secondary-container/60 block mb-1">02 / 阶段</span>
+<h3 class="font-headline text-xl font-bold uppercase tracking-tight">语义链接</h3>
+</div>
+<div class="flex items-center gap-2 px-3 py-1 bg-secondary-container/10 border border-secondary-container/20">
+<span class="material-symbols-outlined text-xs text-secondary-container" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="font-['JetBrains_Mono'] text-[10px] text-secondary-container font-bold uppercase">已同步</span>
+</div>
+</div>
+<div class="flex flex-wrap gap-3">
+<div class="flex items-center gap-3 bg-surface-container p-3 flex-1 min-w-[200px] border-r-2 border-secondary-container">
+<span class="material-symbols-outlined text-secondary-container" data-icon="hub">hub</span>
+<div>
+<p class="text-[10px] font-['JetBrains_Mono'] uppercase opacity-50">目标节点</p>
+<p class="font-headline font-bold text-sm">C++ ADTs</p>
+</div>
+</div>
+<div class="flex items-center justify-center p-3">
+<span class="material-symbols-outlined text-secondary-container/40" data-icon="double_arrow">double_arrow</span>
+</div>
+<div class="bg-surface-container p-3 flex-1 min-w-[200px]">
+<p class="text-[10px] font-['JetBrains_Mono'] uppercase opacity-50">链接权重</p>
+<p class="font-headline font-bold text-sm">0.942 - 战略级</p>
+</div>
+</div>
+</section>
+<!-- Stage 3: Flashcard Generation -->
+<section class="bg-surface-container-low p-6 relative border-l-2 border-tertiary-fixed-dim">
+<div class="flex justify-between items-start mb-6">
+<div>
+<span class="font-['JetBrains_Mono'] text-[10px] text-tertiary-fixed-dim/60 block mb-1">03 / 阶段</span>
+<h3 class="font-headline text-xl font-bold uppercase tracking-tight">记忆综合器</h3>
+</div>
+<div class="font-['JetBrains_Mono'] text-[10px] text-tertiary-fixed-dim border border-tertiary-fixed-dim/20 px-3 py-1">已创建 3 张卡片</div>
+</div>
+<div class="space-y-3">
+<div class="group bg-surface-container hover:bg-surface-container-high transition-colors p-4 flex items-center justify-between">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-tertiary-fixed-dim" data-icon="style" style="font-variation-settings: 'FILL' 1;">style</span>
+<div>
+<p class="font-headline font-bold text-sm">定义: 指针解引用</p>
+<p class="text-[10px] font-['JetBrains_Mono'] text-on-surface-variant/60">复杂度: 2/5 | 类型: 主动召回</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant/40 group-hover:text-primary-container" data-icon="visibility">visibility</span>
+</div>
+<div class="group bg-surface-container hover:bg-surface-container-high transition-colors p-4 flex items-center justify-between">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-tertiary-fixed-dim" data-icon="style" style="font-variation-settings: 'FILL' 1;">style</span>
+<div>
+<p class="font-headline font-bold text-sm">机制: 栈 vs 堆分配</p>
+<p class="text-[10px] font-['JetBrains_Mono'] text-on-surface-variant/60">复杂度: 4/5 | 类型: 比较</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant/40 group-hover:text-primary-container" data-icon="visibility">visibility</span>
+</div>
+<div class="group bg-surface-container hover:bg-surface-container-high transition-colors p-4 flex items-center justify-between opacity-50">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-tertiary-fixed-dim" data-icon="style" style="font-variation-settings: 'FILL' 1;">style</span>
+<div>
+<p class="font-headline font-bold text-sm">概念: RAII 模式</p>
+<p class="text-[10px] font-['JetBrains_Mono'] text-on-surface-variant/60">正在完成内容生成...</p>
+</div>
+</div>
+<div class="h-1 w-12 bg-surface-container-highest relative overflow-hidden">
+<div class="absolute inset-0 bg-tertiary-fixed-dim/30 animate-[pulse_1s_infinite]"></div>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- Stats & Network Info (RHS) -->
+<div class="lg:col-span-4 space-y-6">
+<div class="bg-surface-container-high p-6 border-b-4 border-primary-container">
+<h4 class="font-['JetBrains_Mono'] text-[10px] tracking-[0.2em] uppercase text-on-surface-variant mb-4">Network Status</h4>
+<div class="aspect-square w-full bg-surface-container p-4 relative flex items-center justify-center overflow-hidden">
+<!-- Simulated Network Grid Image -->
+<img alt="Digital network" class="absolute inset-0 w-full h-full object-cover opacity-20 grayscale" data-alt="Abstract digital network of lines and dots connecting over a deep black background with matrix green highlights and futuristic technical glitches" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCm1MVBbXF9z4lry77VaTq30RuV0mpMKG3MZmXN49fFN-311pqC0HL24hG4UiSRuvOGQeipIXbQO59QNGMwUPofS_--eaZBWXrpdLoqEY4acHzAbCPkiFDTuAS8xGBi6SZKhv61uXtaIGfe_SaS2viIKVSqcCIzKMyccUd_EW_Q4bx_G2jnF3kSeY7KKWCBxeodFGk_2tTkkVKeNJBfiyr4g6duZuQ23sqPbpelbw8O3ttbUkuMNjie4bQAwisd3fsI0mOnP8QNOCY"/>
+<div class="relative z-10 text-center">
+<p class="font-headline text-5xl font-extrabold text-[#00FF41]">84%</p>
+<p class="font-['JetBrains_Mono'] text-[10px] tracking-widest opacity-60">保留概率</p>
+</div>
+<div class="absolute bottom-2 right-2 text-[8px] font-['JetBrains_Mono'] text-primary-container/40">延迟: 12ms <br/> 上行: 激活</div>
+</div>
+</div>
+<div class="bg-surface-container-low p-6 space-y-4">
+<h4 class="font-['JetBrains_Mono'] text-[10px] tracking-[0.2em] uppercase text-on-surface-variant">System Metadata</h4>
+<div class="space-y-4">
+<div class="flex justify-between items-end border-b border-outline-variant/10 pb-2">
+<span class="font-['JetBrains_Mono'] text-xs opacity-60">唯一标识码 (UUID)</span>
+<span class="font-['JetBrains_Mono'] text-xs">A9-88-FF-12</span>
+</div>
+<div class="flex justify-between items-end border-b border-outline-variant/10 pb-2">
+<span class="font-['JetBrains_Mono'] text-xs opacity-60">吞吐量</span>
+<span class="font-['JetBrains_Mono'] text-xs">4.2 GB/s</span>
+</div>
+<div class="flex justify-between items-end border-b border-outline-variant/10 pb-2">
+<span class="font-['JetBrains_Mono'] text-xs opacity-60">线程数</span>
+<span class="font-['JetBrains_Mono'] text-xs">12_ACTIVE</span>
+</div>
+</div>
+</div>
+<div class="bg-primary-container p-6 text-on-primary-container">
+<div class="flex items-center gap-3 mb-2">
+<span class="material-symbols-outlined" data-icon="memory">memory</span>
+<h4 class="font-headline font-bold text-sm uppercase">Archive Priority</h4>
+</div>
+<p class="text-xs font-medium leading-tight">当前工作流已被标记为“高相关性”。提取优先级已提升至 1 级。</p>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center h-20 bg-[#131313] border-t border-[#00FF41]/20">
+<a class="flex flex-col items-center justify-center text-[#00FF41] bg-[#00FF41]/5 border-t-2 border-[#00FF41] pt-2 pb-3 px-4 transition-all duration-75 ease-in" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="grid_view">grid_view</span>
+<span class="font-['JetBrains_Mono'] text-[10px] tracking-[0.05em] uppercase">枢纽</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#00A2FD]/60 pt-2 pb-3 px-4 hover:text-[#00FF41] hover:bg-[#1C1B1B] transition-all duration-75 ease-in" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="hub">hub</span>
+<span class="font-['JetBrains_Mono'] text-[10px] tracking-[0.05em] uppercase">图谱</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#00A2FD]/60 pt-2 pb-3 px-4 hover:text-[#00FF41] hover:bg-[#1C1B1B] transition-all duration-75 ease-in" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="forum">forum</span>
+<span class="font-['JetBrains_Mono'] text-[10px] tracking-[0.05em] uppercase">对话</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#00A2FD]/60 pt-2 pb-3 px-4 hover:text-[#00FF41] hover:bg-[#1C1B1B] transition-all duration-75 ease-in" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="inventory_2">inventory_2</span>
+<span class="font-['JetBrains_Mono'] text-[10px] tracking-[0.05em] uppercase">存档</span>
+</a>
+</nav>
+</body></html>
